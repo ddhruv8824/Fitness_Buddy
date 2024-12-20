@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Sam Cole",
+    "location": "Los Angeles, USA",
+    "goal": "Build Muscle",
+    "gender": "Male",
+    "image": "https://via.placeholder.com/250x300?text=Sam+Cole"
+  },
+  {
+    "id": 2,
+    "name": "Michael Harris",
+    "location": "New York, USA",
+    "goal": "Weight Loss",
+    "gender": "Male",
+    "image": "https://via.placeholder.com/250x300?text=Michael+Harris"
+  },
+  {
+    "id": 3,
+    "name": "John Anderson",
+    "location": "Chicago, USA",
+    "goal": "Gain Strength",
+    "gender": "Male",
+    "image": "https://via.placeholder.com/250x300?text=John+Anderson"
+  },
+  {
+    "id": 4,
+    "name": "Tom Blake",
+    "location": "Houston, USA",
+    "goal": "Cardio Fitness",
+    "gender": "Male",
+    "image": "https://via.placeholder.com/250x300?text=Tom+Blake"
+  },
+  {
+    "id": 5,
+    "name": "Sarah Connor",
+    "location": "San Francisco, USA",
+    "goal": "Build Muscle",
+    "gender": "Female",
+    "image": "https://via.placeholder.com/250x300?text=Sarah+Connor"
+  },
+  {
+    "id": 6,
+    "name": "Emily Stone",
+    "location": "Austin, USA",
+    "goal": "Flexibility & Yoga",
+    "gender": "Female",
+    "image": "https://via.placeholder.com/250x300?text=Emily+Stone"
+  },
+  {
+    "id": 7,
+    "name": "Jessica Green",
+    "location": "Seattle, USA",
+    "goal": "Weight Loss",
+    "gender": "Female",
+    "image": "https://via.placeholder.com/250x300?text=Jessica+Green"
+  },
+  {
+    "id": 8,
+    "name": "Jake Ford",
+    "location": "Boston, USA",
+    "goal": "Athletic Performance",
+    "gender": "Male",
+    "image": "https://via.placeholder.com/250x300?text=Jake+Ford"
+  },
+  {
+    "id": 9,
+    "name": "Emma Brown",
+    "location": "Miami, USA",
+    "goal": "General Fitness",
+    "gender": "Female",
+    "image": "https://via.placeholder.com/250x300?text=Emma+Brown"
+  },
+  {
+    "id": 10,
+    "name": "Nathan King",
+    "location": "Denver, USA",
+    "goal": "Gain Strength",
+    "gender": "Male",
+    "image": "https://via.placeholder.com/250x300?text=Nathan+King"
+  }
+]
