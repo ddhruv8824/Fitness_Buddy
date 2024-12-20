@@ -20,6 +20,15 @@ export const Navbar = () => {
         <li>
           <Link to="/signup">Sign Up</Link>
         </li>
+        <li>
+          <Link to="/WorkoutTracking">TrackWorkout</Link>
+        </li>
+        <li>
+          <Link to="/BuddyMatching">BuddyMatching</Link>
+        </li>
+        <li>
+          <Link to="/WeeklyProgressReport">Week Progress Report</Link>
+        </li>
       </ul>
     </nav>
   );

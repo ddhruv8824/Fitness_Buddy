@@ -35,6 +35,10 @@ export const Login = () => {
         },
       });
       if (response.status === 200) {
+        const token = response.data.token;
+
+        // Save token to localStorage
+        localStorage.setItem("jwtToken", token);
         setSuccessMessage("Login successful!");
         setErrorMessage("");
         console.log("Response data:", response.data);

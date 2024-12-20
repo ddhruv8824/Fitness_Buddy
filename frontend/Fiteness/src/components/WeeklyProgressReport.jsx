@@ -1,6 +1,7 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   PieChart,
   Pie,
@@ -16,26 +17,57 @@ import {
 } from "recharts";
 import "../Styles/weeklyReport.css"; // Custom styles for layout
 
-// Sample Data
-const demoData = [
-  { weekStartDate: "2024-12-01", totalWorkoutsCompleted: 4, totalCaloriesBurned: 1200 },
-  { weekStartDate: "2024-12-08", totalWorkoutsCompleted: 5, totalCaloriesBurned: 1400 },
-  { weekStartDate: "2024-12-15", totalWorkoutsCompleted: 3, totalCaloriesBurned: 1100 },
-];
-
 const WeeklyProgressReport = () => {
-  const [data] = useState(demoData); // Demo data used for now
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Total Calculations for Summary
-  const totalWorkouts = data.reduce((acc, curr) => acc + curr.totalWorkoutsCompleted, 0);
-  const totalCalories = data.reduce((acc, curr) => acc + curr.totalCaloriesBurned, 0);
+  useEffect(() => {
+    const fetchWeeklyData = async () => {
+      const token = localStorage.getItem("jwtToken");
+      if (!token) {
+        alert("You are not logged in. Please log in first.");
+        return;
+      }
 
-  // Pie chart data for workouts and calories
-  const workoutsChartData = [
-    { name: "Workouts", value: totalWorkouts, color: "#ff4d4d" },
-  ];
-  const caloriesChartData = [
-    { name: "Calories", value: totalCalories, color: "#82ca9d" },
+      try {
+        const response = await axios.get(
+          "https://fitness-buddy-app.onrender.com/weekProgress",
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          const { data } = response.data;
+          setData(data);
+        }
+      } catch (error) {
+        console.error("Error fetching weekly progress:", error);
+        alert("Failed to fetch weekly progress. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchWeeklyData();
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!data) {
+    return <div>No data available for weekly progress.</div>;
+  }
+
+  const { totalCaloriesBurned, totalDuration , dailyProgress} = data;
+
+  // Pie chart data
+  const chartData = [
+    { name: "Calories Burned", value: totalCaloriesBurned, color: "#82ca9d" },
+    { name: "Duration (mins)", value: totalDuration, color: "#8884d8" },
   ];
 
   return (
@@ -45,115 +77,60 @@ const WeeklyProgressReport = () => {
       {/* Main Layout */}
       <div className="charts-grid">
         <div className="pie-chart-container">
-          <WorkoutsPieChart data={workoutsChartData} />
+          <ResponsiveContainer width="100%" height={400}>
+            <PieChart>
+              <Tooltip contentStyle={{ backgroundColor: "#1a1a1a", color: "#e6e6e6" }} />
+              <Legend wrapperStyle={{ color: "#e6e6e6" }} />
+              <Pie
+                data={chartData}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={150}
+                fill="#8884d8"
+                animationDuration={1500}
+                label
+              >
+                {chartData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
         </div>
-        <div className="pie-chart-container">
-          <CaloriesPieChart data={caloriesChartData} />
+
+        {/* Bar Chart */}
+        <div className="bar-chart-container">
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart data={dailyProgress}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="day" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="caloriesBurned" fill="#8884d8" name="Calories Burned" />
+              <Bar dataKey="duration" fill="#82ca9d" name="Duration (mins)" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
-      <div className="charts-grid">
-        <div className="bar-graph-container">
-          <WorkoutsBarChart data={data} />
-        </div>
-        <div className="bar-graph-container">
-          <CaloriesBarChart data={data} />
-        </div>
-      </div>
-
-      <SummarySection totalWorkouts={totalWorkouts} totalCalories={totalCalories} />
+      <SummarySection totalCalories={totalCaloriesBurned} totalDuration={totalDuration} />
     </div>
   );
 };
 
-// Pie Chart for Workouts
-const WorkoutsPieChart = ({ data }) => (
-  <ResponsiveContainer width="100%" height={400}>
-    <PieChart>
-      <Tooltip contentStyle={{ backgroundColor: "#1a1a1a", color: "#e6e6e6" }} />
-      <Legend wrapperStyle={{ color: "#e6e6e6" }} />
-      <Pie
-        data={data}
-        dataKey="value"
-        nameKey="name"
-        cx="50%"
-        cy="50%"
-        outerRadius={150}
-        fill="#8884d8"
-        animationDuration={1500}
-        label
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={entry.color} />
-        ))}
-      </Pie>
-    </PieChart>
-  </ResponsiveContainer>
-);
-
-// Pie Chart for Calories
-const CaloriesPieChart = ({ data }) => (
-  <ResponsiveContainer width="100%" height={400}>
-    <PieChart>
-      <Tooltip contentStyle={{ backgroundColor: "#1a1a1a", color: "#e6e6e6" }} />
-      <Legend wrapperStyle={{ color: "#e6e6e6" }} />
-      <Pie
-        data={data}
-        dataKey="value"
-        nameKey="name"
-        cx="50%"
-        cy="50%"
-        outerRadius={150}
-        fill="#8884d8"
-        animationDuration={1500}
-        label
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={entry.color} />
-        ))}
-      </Pie>
-    </PieChart>
-  </ResponsiveContainer>
-);
-
-// Bar Chart for Weekly Workouts
-const WorkoutsBarChart = ({ data }) => (
-  <ResponsiveContainer width="100%" height={400}>
-    <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="weekStartDate" />
-      <YAxis />
-      <Tooltip contentStyle={{ backgroundColor: "#1a1a1a", color: "#e6e6e6" }} />
-      <Legend />
-      <Bar dataKey="totalWorkoutsCompleted" fill="#ff4d4d" barSize={40} />
-    </BarChart>
-  </ResponsiveContainer>
-);
-
-// Bar Chart for Weekly Calories
-const CaloriesBarChart = ({ data }) => (
-  <ResponsiveContainer width="100%" height={400}>
-    <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="weekStartDate" />
-      <YAxis />
-      <Tooltip contentStyle={{ backgroundColor: "#1a1a1a", color: "#e6e6e6" }} />
-      <Legend />
-      <Bar dataKey="totalCaloriesBurned" fill="#82ca9d" barSize={50} />
-    </BarChart>
-  </ResponsiveContainer>
-);
-
 // Summary Section
-const SummarySection = ({ totalWorkouts, totalCalories }) => (
+const SummarySection = ({ totalCalories, totalDuration }) => (
   <div className="summary">
     <h3>
-      Summary: {totalWorkouts} Workouts Completed, {totalCalories} Calories Burned
+      Summary: {totalCalories} Calories Burned, {totalDuration} Minutes Worked Out
     </h3>
-    {totalWorkouts >= 5 ? (
+    {totalCalories >= 5000 ? (
       <p className="summary-text success">Great job! You've exceeded your weekly goals!</p>
     ) : (
-      <p className="summary-text encouraging">Keep pushing! You're almost at your weekly goals.</p>
+      <p className="summary-text encouraging">Keep pushing! You're doing great!</p>
     )}
   </div>
 );

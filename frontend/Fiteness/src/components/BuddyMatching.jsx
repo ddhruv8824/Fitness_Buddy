@@ -1,16 +1,15 @@
 /** @format */
 
 import React from "react";
-import users from "../data/users.json";
-import "../Styles/UserCard.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import users from "../data/users.json";
 
 const CustomNextArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props; // Corrected onClick
   return (
     <div
       className={className}
@@ -20,13 +19,13 @@ const CustomNextArrow = (props) => {
         background: "red",
         borderRadius: "50%",
       }}
-      onClick={onClick}
+      onClick={onClick} // Corrected here
     />
   );
 };
 
 const CustomPrevArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props; // Corrected onClick
   return (
     <div
       className={className}
@@ -36,33 +35,29 @@ const CustomPrevArrow = (props) => {
         background: "red",
         borderRadius: "50%",
       }}
-      onClick={onClick}
+      onClick={onClick} // Corrected here
     />
   );
 };
 
-const UserCard = () => {
+const BuddyMatching = () => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Show 3 cards per slide
+    slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <CustomNextArrow />, // Custom next button
-    prevArrow: <CustomPrevArrow />, // Custom previous button
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
   };
 
-  function handleClick() {
-    console.log("wroking");
-  }
-
   return (
-    <>
-      <div className="main">
+    <div className="main">
+      <h2>Buddy Matching with Same Goals</h2>
       <div className="container-c">
         <Slider {...settings}>
           {users.map((user) => (
-            <div key={user.id} className="user-card1" onClick={handleClick}>
+            <div key={user.id} className="user-card1">
               <div className="user-card-img">
                 <img src={user.image} alt={user.name} />
               </div>
@@ -82,9 +77,8 @@ const UserCard = () => {
           ))}
         </Slider>
       </div>
-      </div>
-    </>
+    </div>
   );
 };
 
-export default UserCard;
+export default BuddyMatching;
