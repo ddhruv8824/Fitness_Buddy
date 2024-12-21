@@ -6,15 +6,16 @@ import UserCard from "./UserCard";
 import Footer from "./Footer";
 import WeeklyProgressReport from "./WeeklyProgressReport";
 import ProfileForm from "./ProfileForm";
+import LeaderBoard from "./LeaderBoard";
+import BlogAndVideos from "./BlogAndVideos";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
-      <UserCard />
-      Home
       <WeeklyProgressReport />
-      <ProfileForm />
+      <LeaderBoard />
+      <BlogAndVideos />
       <Footer />
     </div>
   );

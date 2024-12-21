@@ -1,0 +1,80 @@
+/** @format */
+
+.blog-videos-container {
+  padding: 40px;
+  background-color: #222;
+  color: white;
+}
+
+.blog-section,
+.videos-section {
+  margin-bottom: 30px;
+}
+
+.blog-section h2,
+.videos-section h2 {
+  color: red;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.blog-card,
+.video-card {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.blog-card h3,
+.video-card h3 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.blog-card p,
+.video-card p {
+  font-size: 16px;
+  color: #bbb;
+}
+
+.btn-read-more {
+  background-color: red;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.btn-read-more:hover {
+  background-color: #d32f2f;
+}
+
+/* Video iframe styling */
+.video-card iframe {
+  width: 100%;
+  max-width: 560px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-videos-container {
+    padding: 20px;
+  }
+
+  .blog-card,
+  .video-card {
+    padding: 15px;
+  }
+
+  .video-card iframe {
+    max-width: 100%;
+  }
+}

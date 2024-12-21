@@ -27,6 +27,7 @@ function App() {
             path="/WeeklyProgressReport"
             element={<WeeklyProgressReport />}
           />
+          <Route path="/CreateProfile" element={<ProfileForm />} />
           <Route path="/" element={<Home />} /> {/* Home component */}
         </Routes>
       </Router>

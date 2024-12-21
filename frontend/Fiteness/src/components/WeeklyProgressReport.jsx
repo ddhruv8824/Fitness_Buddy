@@ -103,14 +103,14 @@ const WeeklyProgressReport = () => {
         {/* Bar Chart */}
         <div className="bar-chart-container">
           <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={dailyProgress}>
+            <BarChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="day" />
-              <YAxis />
-              <Tooltip />
+              <XAxis dataKey="name" />
+              <YAxis dataKey="value" />
+              <Tooltip contentStyle={{ backgroundColor: "#1a1a1a", color: "#e6e6e6" }} />
               <Legend />
-              <Bar dataKey="caloriesBurned" fill="#8884d8" name="Calories Burned" />
-              <Bar dataKey="duration" fill="#82ca9d" name="Duration (mins)" />
+              <Bar dataKey="name" fill="#8884d8" name="Calories Burned" />
+              <Bar dataKey="value" fill="#8884d8" name="Duration (mins)" />
             </BarChart>
           </ResponsiveContainer>
         </div>
