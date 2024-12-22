@@ -1,0 +1,71 @@
+/**
+ * Container
+ *
+ * @format
+ */
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+.user-card1 {
+  width: 180px; /* Smaller card width */
+  margin: 0 auto; /* Center each card */
+  border-radius: 10px;
+  background-color: #111; /* Dark black background */
+  box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3); /* Red shadow */
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-card1:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.6); /* Stronger red shadow on hover */
+}
+
+.user-card-img img {
+  width: 100%;
+  height: 200px; /* Adjust height for smaller cards */
+  object-fit: cover;
+}
+
+/* Content */
+.user-card-content {
+  padding: 15px;
+}
+
+.user-card-name {
+  margin: 10px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff0000; /* Red text for name */
+}
+
+.user-card-gender,
+.user-card-location,
+.user-card-goal {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #ddd; /* Light grey for other details */
+}
+
+.user-card-gender {
+  color: #ff3333;
+}
+
+.container-c {
+  width: 60%;
+  padding: 10px;
+  margin-top: 100px;
+  border-radius: 10px;
+}
+.headl {
+  color: #ff0000;
+  margin-top: 100px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

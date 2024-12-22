@@ -1,0 +1,85 @@
+.buddy-container {
+  background: linear-gradient(to right, #1f1f1f 65%, rgba(255, 0, 0, 0.68) 35%);
+    padding: 4rem 2rem;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .buddy-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .buddy-title-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px #ffffff;
+    font-weight: bold;
+  }
+  
+  .buddy-title-solid {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .exercise-card {
+    background-color: rgb(0, 0, 0);
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .exercise-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .exercise-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .exercise-title {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .exercise-description {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .buddy-title {
+      font-size: 2rem;
+    }
+    
+    .exercise-grid {
+      grid-template-columns: 1fr;
+    }
+  }

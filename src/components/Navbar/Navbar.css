@@ -1,0 +1,96 @@
+/**
+ * Resetting margin and padding
+ *
+ * @format
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+.logo > img {
+  width: 250px;
+  height: 100px;
+  object-fit: cover;
+}
+.logo > img:hover {
+  transform: scale(1.2); /* Scale the image to 1.2 times its original size */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: black;
+  color: white;
+}
+
+.navbar .logo h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: red;
+}
+
+.navbar .logo i {
+  margin-right: 10px;
+  color: red;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a i {
+  margin-right: 8px;
+}
+
+.nav-links a:hover {
+  background-color: red;
+  color: white;
+}
+
+.nav-links a.active {
+  background-color: red;
+  color: white;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+}

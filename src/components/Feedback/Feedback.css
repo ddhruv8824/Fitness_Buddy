@@ -1,0 +1,137 @@
+
+
+
+.feedback-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(to right, #1f1f1f 65%, rgba(255, 0, 0, 0.68) 35%);
+  overflow-x: hidden; /* Prevent horizontal scrolling issues */
+}
+
+.feedback-slider {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%; /* Ensure full width of container */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.feedback-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.feedback-slide {
+  flex: 0 0 100%; /* Ensure each slide takes 100% of the container width */
+  max-width: 100%; /* Avoid overflow */
+  box-sizing: border-box; /* Include padding in width */
+  padding: 20px;
+}
+
+.feedback-content {
+  border-radius: 10px;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adjust shadow to be more subtle */
+  text-align: left;
+}
+
+.feedback-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.feedback-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.feedback-author {
+  text-align: left;
+}
+
+.feedback-name {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+.feedback-role {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+.feedback-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  text-align: left;
+  word-wrap: break-word; /* Prevent text overflow */
+}
+
+.feedback-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #666;
+}
+.trustpilot-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.trustpilot-logo {
+  height: 24px;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feedback-container {
+    padding: 20px 10px;
+  }
+
+  .feedback-title {
+    font-size: 2rem;
+    color: white;
+  }
+
+  .feedback-content {
+    padding: 20px;
+  }
+
+  .feedback-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .feedback-text {
+    font-size: 0.9rem; /* Adjust text size for smaller screens */
+
+  }
+}

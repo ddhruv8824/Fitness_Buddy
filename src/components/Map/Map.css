@@ -1,0 +1,60 @@
+/* Base styling for the map container */
+.location {
+    width: 100%; /* Ensures full width of the page */
+    padding: 1rem; /* Adds some padding for spacing */
+    box-sizing: border-box; /* Includes padding in width calculations */
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 10rem;
+    align-items: center; /* Centers content horizontally */
+    background: linear-gradient(to right, #1f1f1f 65%, rgba(255, 0, 0, 0.68) 35%);
+   
+  }
+  #titleMap{
+    color: white;
+  }
+  
+  /* Heading styling */
+  .location h4 {
+    font-size: 1.5rem; /* Responsive font size */
+    margin-bottom: 1rem; /* Spacing below the heading */
+    text-align: center; /* Centers text */
+    color: #333; /* Darker text color for better readability */
+  }
+    .location h2 {
+     
+    font-size: 2rem; /* Responsive font size */
+    margin-bottom: 1px; /* Spacing below the heading */
+    text-align: center; /* Centers text */
+    color: #333; /* Darker text color for better readability */
+  }
+  /* Styling for the iframe */
+  .location iframe {
+    width: 100%; /* Takes full width of the container */
+    max-width: 1200px; /* Limits the maximum width for larger screens */
+    height: 10px; /* Fixed height for the iframe */
+    border: 0; /* Removes the default border */
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a clean look */
+    transition: all 0.3s ease; /* Smooth transition for dynamic effects */
+  }
+  
+  /* Responsive design: Adjusts the iframe height for smaller devices */
+  @media (max-width: 768px) {
+    .location iframe {
+      height: 300px; /* Reduces height for smaller screens */
+    }
+  }
+  
+  /* Responsive design: Further adjustments for very small devices */
+  @media (max-width: 480px) {
+    .location h4 {
+      font-size: 1.2rem; /* Smaller font size for narrow screens */
+    }
+  
+    .location iframe {
+      height: 250px; /* Further reduces height for compact devices */
+    }
+  }
+  

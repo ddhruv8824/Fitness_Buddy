@@ -1,0 +1,81 @@
+/** @format */
+/* Container */
+.container3{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.profile-form-container {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+  width: 600px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Heading */
+.profile-form-container h2 {
+  color: #ff0000;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+#WT{
+  color: #ff3333;
+  font-size: 70px;
+  margin-bottom: 50px;
+}
+
+
+/* Form */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile-form label {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+.profile-form input[type="number"],
+.profile-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  background-color: #111;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.profile-form input[type="number"]:focus,
+.profile-form select:focus {
+  border-color: #ff3333;
+}
+
+/* Button */
+.profile-form button {
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-form button:hover {
+  background-color: #ff3333;
+  transform: scale(1.05);
+}
