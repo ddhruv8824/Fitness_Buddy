@@ -22,15 +22,8 @@ FitConnect is a fitness community app designed to help users achieve their fitne
   - Fitness goals (e.g., weight loss, strength training).
 - Helps in matching users with similar interests.
 
-### 3. **Buddy Matching**
 
-- Smart algorithm matches users based on:
-  - Fitness goals.
-  - Preferred workout type.
-  - Location proximity.
-- Example: A weightlifting enthusiast in the same city is matched with another user with similar goals.
-
-### 4. **Weekly Progress Reports**
+### 3. **Weekly Progress Reports**
 
 - Automatically generates summaries at the end of each week.
 - Highlights:
@@ -39,20 +32,10 @@ FitConnect is a fitness community app designed to help users achieve their fitne
   - Progress toward fitness goals.
 - Keeps users motivated and focused.
 
-### 5. **Additional Features**
+### 4. **Additional Features**
 
 - **Map Location**: Locate nearby fitness centers or workout buddies' preferred locations.
 - **BMI Calculator**: Quickly calculate Body Mass Index to adjust fitness plans effectively.
-
----
-
-## 📷 Screenshots
-
-| Feature                  | Screenshot            |
-| ------------------------ | --------------------- |
-| User Profile Creation    | _Add screenshot here_ |
-| Buddy Matching Algorithm | _Add screenshot here_ |
-| Weekly Progress Report   | _Add screenshot here_ |
 
 ---
 
